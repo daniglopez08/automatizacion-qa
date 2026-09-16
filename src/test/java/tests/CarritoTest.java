@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.CartPage;
 import pages.InventoryPage;
 import pages.LoginPage;
@@ -16,9 +17,12 @@ public class CarritoTest {
     LoginPage loginPage;
     InventoryPage inventoryPage;
 
+
     @BeforeEach
     public void configurar() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        driver = new ChromeDriver(options);
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
 
