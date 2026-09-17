@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LoginTest1 {
     WebDriver driver;
     LoginPage1 loginPage;
-
+// Prueba de login en SauceDemo
 
     @BeforeEach
     public void configurar() {
