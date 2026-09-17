@@ -21,7 +21,7 @@ public class ProductoTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--headless=new");
-        ChromeOptions chromeOptions = options.addArguments("--no-sandbox");
+        options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--window-size=1920,1080");
 
