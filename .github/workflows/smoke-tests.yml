@@ -1,0 +1,25 @@
+name: Smoke Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Configurar Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Ejecutar Smoke Tests
+        run: mvn "-Dtest=LoginTest1,ProductoTest,CarritoTest" test

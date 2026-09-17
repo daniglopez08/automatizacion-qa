@@ -1,0 +1,25 @@
+name: Regression Tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  regression-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Configurar Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Ejecutar Regression Tests
+        run: mvn clean test
